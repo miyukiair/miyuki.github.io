@@ -26,10 +26,13 @@
     var loginDom = document.getElementById("login");
     loginDom.textContent = login ? 'true' : 'false';
     var user = liff.getDecodedIDToken();
+    var userJson = JSON.stringify(user);
     var email = user.email;
     //console.log('user', user)
+    var userDom = document.getElementById("user");
+    userDom.textContent = userJson;
     var emailDom = document.getElementById("email");
-    emailDom.textContent = email;
+    emailDom.textContent = email??none;
     console.log('email', email);
 
   }).catch(function(error) {
