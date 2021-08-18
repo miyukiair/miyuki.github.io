@@ -7,21 +7,31 @@
 </head>
 <body>
 <h1>Line Liff</h1>
+<div id="start"></div>
+<div id="user">user:</div>
+<div id="email">email:</div>
+<div id="login">login:</div>
 <script>
   var liffID = '1656330124-NVydBzxG';
 
   liff.init({
     liffId: liffID
   }).then(function() {
-    console.log('LIFF init');
+    var startDom = document.getElementById("start");
+    startDom.textContent = "LIFF init";
+    //console.log('LIFF init');
 
     // 這邊開始寫使用其他功能
     var login = liff.isLoggedIn();
-    console.log('login', login);
+    var loginDom = document.getElementById("login");
+    loginDom.textContent = login ? 'true' : 'false';
     var user = liff.getDecodedIDToken();
     var email = user.email;
-    console.log('user', user)
+    //console.log('user', user)
+    var emailDom = document.getElementById("email");
+    emailDom.textContent = email;
     console.log('email', email);
+
   }).catch(function(error) {
     console.log(error);
   });
